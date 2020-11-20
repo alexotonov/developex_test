@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Balance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="wrapper">
+    <p>Card number: {{ number }}</p>
+    <p>Date: {{ date }}</p>
+    <p>Balance: {{ balance }}</p>
+    <form method="POST" action="{{ '/' + token_hex + '/balance'}}">
+        {{ form.csrf_token }}
+        {{ form.back() }}
+        {{ form.ext() }}
+    </form>
+</div>
+</body>
+</html>

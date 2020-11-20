@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bill</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="wrapper">
+    <p>Card number: {{ card.number }}</p>
+    <p>Date: {{ date }}</p>
+    <p>Amount: {{ amount }}</p>
+    <p>Balance: {{ card.amount }}</p>
+    <form method="POST" action="{{ '/' + token_hex + '/bill'}}">
+        {{ form.csrf_token }}
+        {{ form.back() }}
+        {{ form.ext() }}
+    </form>
+</div>
+</body>
+</html>

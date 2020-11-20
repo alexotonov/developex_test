@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pin</title>
+    <script src="{{ url_for('static', filename='js/numpad.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/numpad.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="wrapper">
+    <form method="POST" action="{{ '/' + token_hex + '/pin' }}">
+        {{ form.csrf_token }}
+        {{ form.pin.label }}
+        {{ form.pin(id='pin_code', size=4, max=4) }}
+        <input type="submit" value="OK">
+    </form>
+</div>
+<script>
+    numpad.attach({
+      id : "pin_code",
+      max: 4,
+      input_type: "password",
+      decimal : false
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Card</title>
+    <script src="{{ url_for('static', filename='js/numpad.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/numpad.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="wrapper">
+    <form method="POST" action="/">
+        {{ form.csrf_token }}
+        {{ form.number.label }}
+        {{ form.number(id='card_number', size=20) }}
+        <input type="submit" value="OK">
+    </form>
+</div>
+
+<script>
+numpad.attach({
+  id : "card_number",
+  separator: "-",
+  decimal : false
+});
+</script>
+</body>
+</html>

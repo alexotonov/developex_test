@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Options</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="wrapper">
+    <form method="POST" action="{{ '/' + token_hex + '/options'}}">
+        {{ form.csrf_token }}
+        {{ form.balance() }}
+        {{ form.cash() }}
+        {{ form.ext() }}
+    </form>
+</div>
+
+</body>
+</html>
